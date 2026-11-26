@@ -2,12 +2,12 @@
 
 #define MAX 100
 
-/* Global degiskenler: Tum fonksiyonlarin ortak kullandigi sayaclar */
+//Global degiskenler: Tum fonksiyonlarin ortak kullandigi sayaclar
 int baglam = 0;
 int son_surec = -1;
 int satir_blok = 0;
 
-/* Yazan: [Serhat Deyirmenci] - Yeni algoritma oncesi sayaclari ve bitti dizisini sifirlar */
+//Yazan: [Serhat Deyirmenci] - Yeni algoritma oncesi sayaclari ve bitti dizisini sifirlar
 void sifirla(int n, int bitti[]) {
     int i;
     baglam = 0;
@@ -19,7 +19,7 @@ void sifirla(int n, int bitti[]) {
     }
 }
 
-/* Yazan: [Mustafa Samet Fýstýkçýoðu] - Gantt semasina blok yazar ve baglam degisimini sayar */
+// Yazan: [Mustafa Samet Fistikcioglu] - Gantt semasina blok yazar ve baglam degisimini sayar 
 void gantt_ekle(int no, int bas, int son) {
     /* static degisken: Sadece bu fonksiyonda gorunur ama program bitene kadar degerini korur */
     static int toplam_blok = 0;
@@ -43,7 +43,7 @@ void gantt_ekle(int no, int bas, int son) {
     }
 }
 
-/* Yazan: [Mustafa Samet Fýstýkçýoðlu] - Donus ve bekleme surelerini hesaplar, ortalamalari pointer ile dondurur */
+// Yazan: [Mustafa Samet Fistikcioglu] - Donus ve bekleme surelerini hesaplar, ortalamalari pointer ile dondurur 
 void ortalamalar(int n, int gelis[], int cpu[], int bitis[], int donus[], int bekleme[], double *ort_bek, double *ort_don) {
     int i;
     double top_bek = 0;
@@ -60,7 +60,7 @@ void ortalamalar(int n, int gelis[], int cpu[], int bitis[], int donus[], int be
     *ort_don = top_don / n;
 }
 
-/* Yazan: [Serhat Deyirmenci] - Sonuc tablosunu ve ozet bilgileri ekrana yazdirir */
+// Yazan: [Serhat Deyirmenci] - Sonuc tablosunu ve ozet bilgileri ekrana yazdirir 
 void tablo_yazdir(char ad[], int n, int pid[], int gelis[], int cpu[], int bitis[], int donus[], int bekleme[], double ort_bek, double ort_don) {
     int i;
 
@@ -79,7 +79,7 @@ void tablo_yazdir(char ad[], int n, int pid[], int gelis[], int cpu[], int bitis
     printf("Baglam Degisimi : %d\n\n", baglam);
 }
 
-/* Yazan: [Serhat Deyirmenci] - FCFS algoritmasini calistirir */
+// Yazan: [Serhat Deyirmenci] - FCFS algoritmasini calistirir 
 void fcfs(int n, int pid[], int gelis[], int cpu[], double *ort_bek, double *ort_don) {
     int bitis[MAX], donus[MAX], bekleme[MAX], bitti[MAX];
     int sira[MAX];
@@ -123,7 +123,7 @@ void fcfs(int n, int pid[], int gelis[], int cpu[], double *ort_bek, double *ort
     tablo_yazdir("FCFS", n, pid, gelis, cpu, bitis, donus, bekleme, *ort_bek, *ort_don);
 }
 
-/* Yazan: [Mustafa Samet Fýstýkçýoðlu] - Kesintisiz SJF algoritmasini calistirir */
+/* Yazan: [Mustafa Samet Fıstıkcıoglu] - Kesintisiz SJF algoritmasini calistirir */
 void sjf(int n, int pid[], int gelis[], int cpu[], double *ort_bek, double *ort_don) {
     int bitis[MAX], donus[MAX], bekleme[MAX], bitti[MAX];
     int biten = 0, saat = 0, i;
@@ -172,7 +172,7 @@ void sjf(int n, int pid[], int gelis[], int cpu[], double *ort_bek, double *ort_
     tablo_yazdir("SJF", n, pid, gelis, cpu, bitis, donus, bekleme, *ort_bek, *ort_don);
 }
 
-/* Yazan: [Mustafa Samet Fýstýkçýoðlu] - Tur tabanli Round Robin algoritmasini calistirir */
+/* Yazan: [Mustafa Samet Fıstıkcıoglu] - Tur tabanli Round Robin algoritmasini calistirir */
 void rr(int n, int pid[], int gelis[], int cpu[], int quantum, double *ort_bek, double *ort_don) {
     int bitis[MAX], donus[MAX], bekleme[MAX], bitti[MAX], kalan[MAX];
     int biten = 0, saat = 0, i;
